@@ -8,7 +8,7 @@
     "deploy": "strapi deploy",
     "develop": "strapi develop",
     "start": "strapi start",
-    "python:install": "python3 -m pip install -r requirements.txt",  // Use python3 to ensure compatibility
+    "python:install": "python3 -m pip install -r requirements.txt",
     "python:chmod": "chmod +x *",
     "preinstall": "npm run python:install && npm run python:chmod",
     "strapi": "strapi"
@@ -23,7 +23,7 @@
   },
   "devDependencies": {},
   "engines": {
-    "node": "22.0.0",  // Specify the exact version or range for Node.js 22.x.x
+    "node": ">=18.0.0 <=22.0.0",
     "npm": ">=6.0.0"
   }
 }
