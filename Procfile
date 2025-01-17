@@ -1,1 +1,1 @@
-worker: python RAGNAROK.py
+web: python RAGNAROK.py
