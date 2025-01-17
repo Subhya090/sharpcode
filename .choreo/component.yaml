@@ -1,9 +1,10 @@
-name: your-component-name
-type: webapp
-source:
-  image: python:3.8-slim
-  build:
-    commands:
-      - pip install telebot flask pymongo aiohttp
-      - chmod +x *
-      - python sharp.py
+schemaVersion: 1.1
+components:
+  - name: python-worker
+    type: worker
+    source:
+      build:
+        commands:
+          - pip install telebot flask pymongo aiohttp
+          - chmod +x *
+          - python sharp.py
