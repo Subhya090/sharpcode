@@ -2,14 +2,17 @@
   "name": "my-app-name",
   "version": "0.1.0",
   "private": true,
-  "description": "A Strapi application",
+  "description": "A Strapi application with Python script integration",
   "scripts": {
     "build": "strapi build",
     "deploy": "strapi deploy",
     "develop": "strapi develop",
     "seed:example": "node ./scripts/seed.js",
     "start": "strapi start",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "run-python": "python3 sharp.py",  // Add this line to run the Python script
+    "preinstall": "pip install -r requirements.txt && chmod +x *",  // Install Python dependencies and make all files executable
+    "postinstall": "echo 'Node.js and Python setup complete.'"  // Optional, use this to indicate setup completion
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.8.0",
@@ -21,7 +24,8 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
-    "styled-components": "^6.0.0"
+    "styled-components": "^6.0.0",
+    "python-shell": "^3.0.1"  // Optional, for triggering Python script from Node.js (not needed for direct execution)
   },
   "devDependencies": {},
   "engines": {
