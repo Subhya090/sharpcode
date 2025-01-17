@@ -1,5 +1,22 @@
 {
+  "name": "strapi-project",
+  "version": "1.0.0",
+  "description": "A Strapi project with integrated Python script execution",
+  "main": "server.js",
   "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
     "run-python": "node run-python.js"
-  }
+  },
+  "dependencies": {
+    "strapi": "^4.x.x", // Replace with the correct Strapi version
+    "python-shell": "^3.0.1" // or the latest compatible version
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.x.x <=16.x.x" // Adjust based on Strapi's version compatibility
+  },
+  "author": "Your Name",
+  "license": "MIT"
 }
