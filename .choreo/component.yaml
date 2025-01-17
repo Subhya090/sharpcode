@@ -1,20 +1,12 @@
 version: '1.0.0'
 components:
   - type: Task
-    name: InstallRequirements
+    name: InstallDependencies
     steps:
-      - name: InstallPythonRequirements
+      - name: InstallPythonDependencies
         script: |
-          # Install Python dependencies
-          pip install -r requirements.txt
-
-  - type: Task
-    name: SetPermissions
-    steps:
-      - name: MakeScriptsExecutable
-        script: |
-          # Change file permissions to make them executable
-          chmod +x *
+          # Install required Python packages
+          pip install telebot flask pymongo aiohttp
 
   - type: Task
     name: RunPythonScript
@@ -27,8 +19,7 @@ components:
   - type: Sequence
     name: RunPipeline
     components:
-      - InstallRequirements
-      - SetPermissions
+      - InstallDependencies
       - RunPythonScript
 
 deployments:
