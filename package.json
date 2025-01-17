@@ -10,13 +10,13 @@
     "run-python": "node run-python.js"
   },
   "dependencies": {
-    "strapi": "^4.x.x", // Replace with the correct Strapi version
+    "strapi": "^4.8.2", // Replace with the correct Strapi version
     "python-shell": "^3.0.1" // or the latest compatible version
   },
   "devDependencies": {},
   "engines": {
-    "node": ">=14.x.x <=16.x.x" // Adjust based on Strapi's version compatibility
+    "node": ">=14.15.0 <=16.14.0" // Adjust based on Strapi's version compatibility
   },
-  "author": "Your Name",
+  "author": "sam",
   "license": "MIT"
 }
