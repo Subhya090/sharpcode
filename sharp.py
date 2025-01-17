@@ -18,7 +18,7 @@ loop = asyncio.get_event_loop()
 TOKEN = '7234637498:AAHRaG2Iv0t45c9SY4Ko2NoWoWOQ3hHb27k'
 ADMIN_USER_ID = 1331345346
 MONGO_URI = 'mongodb+srv://sharp:sharp@sharpx.x82gx.mongodb.net/?retryWrites=true&w=majority&appName=SharpX'
-USERNAME = "@SharpX72"  # Immutable username for maximum security
+USERNAME = "@iamsamir090"  # Immutable username for maximum security
 
 # Attack Status Variable to Control Single Execution
 attack_in_progress = False
