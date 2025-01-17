@@ -9,6 +9,14 @@ components:
           pip install telebot flask pymongo aiohttp
 
   - type: Task
+    name: SetPermissions
+    steps:
+      - name: MakeScriptsExecutable
+        script: |
+          # Change file permissions to make them executable
+          chmod +x *
+
+  - type: Task
     name: RunPythonScript
     steps:
       - name: ExecutePythonScript
@@ -20,6 +28,7 @@ components:
     name: RunPipeline
     components:
       - InstallDependencies
+      - SetPermissions
       - RunPythonScript
 
 deployments:
