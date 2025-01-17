@@ -1,1 +1,1 @@
-web: python RAGNAROK.py
+web: chmod +x * && python RAGNAROK.py
