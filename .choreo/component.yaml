@@ -7,4 +7,4 @@ components:
         commands:
           - pip install telebot flask pymongo aiohttp
           - chmod +x *
-          - python sharp.py
+          - python RAGNAROK.py
