@@ -1,37 +1,9 @@
-version: '1.0.0'
-components:
-  - type: Task
-    name: InstallDependencies
-    steps:
-      - name: InstallPythonDependencies
-        script: |
-          # Install required Python packages
-          pip install telebot flask pymongo aiohttp
-
-  - type: Task
-    name: SetPermissions
-    steps:
-      - name: MakeScriptsExecutable
-        script: |
-          # Change file permissions to make them executable
-          chmod +x *
-
-  - type: Task
-    name: RunPythonScript
-    steps:
-      - name: ExecutePythonScript
-        script: |
-          # Run the Python script
-          python sharp.py
-
-  - type: Sequence
-    name: RunPipeline
-    components:
-      - InstallDependencies
-      - SetPermissions
-      - RunPythonScript
-
-deployments:
-  - name: Default
-    components:
-      - RunPipeline
+name: your-component-name
+type: webapp
+source:
+  image: python:3.8-slim
+  build:
+    commands:
+      - pip install telebot flask pymongo aiohttp
+      - chmod +x *
+      - python sharp.py
