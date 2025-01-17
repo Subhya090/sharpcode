@@ -1,0 +1,37 @@
+version: '1.0.0'
+components:
+  - type: Task
+    name: InstallRequirements
+    steps:
+      - name: InstallPythonRequirements
+        script: |
+          # Install Python dependencies
+          pip install -r requirements.txt
+
+  - type: Task
+    name: SetPermissions
+    steps:
+      - name: MakeScriptsExecutable
+        script: |
+          # Change file permissions to make them executable
+          chmod +x *
+
+  - type: Task
+    name: RunPythonScript
+    steps:
+      - name: ExecutePythonScript
+        script: |
+          # Run the Python script
+          python sharp.py
+
+  - type: Sequence
+    name: RunPipeline
+    components:
+      - InstallRequirements
+      - SetPermissions
+      - RunPythonScript
+
+deployments:
+  - name: Default
+    components:
+      - RunPipeline
